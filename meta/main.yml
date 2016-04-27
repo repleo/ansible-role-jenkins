@@ -1,6 +1,6 @@
 ---
 dependencies:
-  - { williamyeh.oracle-java,
+  - { role: williamyeh.oracle-java,
       java_version: 8
     }
 
