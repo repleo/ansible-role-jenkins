@@ -5,5 +5,5 @@
     - jenkins_url_prefix: /jenkins
 
   roles:
-    - geerlingguy.java
+    - williamyeh.oracle-java
     - role_under_test
