@@ -1,6 +1,6 @@
 # Ansible Role: Jenkins CI
 
-[![Build Status](https://travis-ci.org/geerlingguy/ansible-role-jenkins.svg?branch=master)](https://travis-ci.org/geerlingguy/ansible-role-jenkins)
+[![Build Status](https://travis-ci.org/repleo/ansible-role-jenkins.svg?branch=master)](https://travis-ci.org/repleo/ansible-role-jenkins)
 
 Installs Jenkins CI on RHEL/CentOS and Debian/Ubuntu servers.
 
@@ -55,7 +55,7 @@ This role will install the latest version of Jenkins by default (using the offic
 
 ## Dependencies
 
-  - geerlingguy.java
+  - williamyeh.java (Java version 8)
 
 ## Example Playbook
 
@@ -63,12 +63,14 @@ This role will install the latest version of Jenkins by default (using the offic
       vars:
         jenkins_hostname: jenkins.example.com
       roles:
-        - geerlingguy.jenkins
+        - repleo.jenkins
 
 ## License
 
 MIT (Expat) / BSD
 
 ## Author Information
+
+Thir role is adapted for Oracle Java by Jeroen Arnoldus, [Repleo](http://www.repleo.nl)
 
 This role was created in 2014 by [Jeff Geerling](http://jeffgeerling.com/), author of [Ansible for DevOps](http://ansiblefordevops.com/).
