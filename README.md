@@ -65,6 +65,35 @@ This role will install the latest version of Jenkins by default (using the offic
       roles:
         - repleo.jenkins
 
+## Example playbook for running Jenkins on port 80 with reverse proxy (it is not allowed to run jenkins on port <1024)
+
+	- name: Deploy jenkins
+	  hosts: jenkins
+	  vars:
+	    - jenkins_hostname: jenkins
+	  user: root
+	  roles:
+	     - { role: repleo.nginx,
+	               create_nginx_conf: false,
+	               nginx_sites: [{
+	                  file_name: jenkins,
+	                  listen: 80,
+	                  server_name: localhost,
+	                  locations: [{
+	                      name: /,
+	                      lines: [
+	                        "proxy_pass http://127.0.0.1:8080",
+	                        "proxy_redirect off",
+	                        "proxy_set_header Host $host",
+	                        "proxy_set_header X-Real-IP $remote_addr",
+	                        "proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for"
+	                      ]
+	                    }]
+	                }
+	               ]
+	       }    
+	     - { role: repleo.jenkins }
+	     
 ## License
 
 MIT (Expat) / BSD
